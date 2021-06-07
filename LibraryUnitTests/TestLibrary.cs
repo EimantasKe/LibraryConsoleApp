@@ -103,18 +103,5 @@ namespace LibraryUnitTests {
             books.AddBook("test", "test", "test", "test", new DateTime(2000, 1, 1), "test");
             Assert.True(books.Books.Count == 1);
         }
-
-        [Fact]
-
-        public void UserBooksOnLoanCountsCorrectly()
-        {
-            Library books = new(new List<Book>());
-            books.AddBook("test", "test", "test", "test", new DateTime(2000, 1, 1), "test");
-            books.AddBook("test1", "test", "test", "test", new DateTime(2000, 1, 1), "test");
-            books.TakeBook("testUserName", "test", 1);
-            Assert.Equal(1, books.UserBooksOnLoan(books.Books, "testUserName"));
-            books.TakeBook("testUserName", "test1", 1);
-            Assert.Equal(2, books.UserBooksOnLoan(books.Books, "testUserName"));
-        }
     }
 }
