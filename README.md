@@ -18,7 +18,7 @@ To-do:
 Solution architecture:
 * LibraryConsoleApp (Console Application)
   * Models
-    * Book.cs (Model of Book)
+    * Book.cs (Model for Book)
     * Library.cs (Model of library and functions for interaction)
   * CLI.cs (Command Line Interface)
   * Program.cs 
