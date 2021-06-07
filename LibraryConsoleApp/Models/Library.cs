@@ -72,22 +72,7 @@ namespace LibraryConsoleApp.Models
 
         public void TakeBook(string userName, string bookName, int loanPeriod)
         {
-        
-            int currently_on_loan = 0;
-            int how_many_loaned = Books.Where(Book => Book.OnLoanToWhom == userName).ToList().Count;
-
-            foreach (var book in Books)
-            {
-                if(book.OnLoanToWhom == userName)
-                {
-                    currently_on_loan++;
-                }
-            }
-
-            Console.WriteLine("current");
-            Console.WriteLine(currently_on_loan);
-            Console.WriteLine(how_many_loaned);
-            if (currently_on_loan >= 3) {
+            if (UserBooksOnLoan(Books, userName) >= 3) {
                 Console.WriteLine("User has already 3 or more books on loan");
                 return;
             }
@@ -161,6 +146,11 @@ namespace LibraryConsoleApp.Models
          public bool BookIsLate(Book book, DateTime date)
         {
             return book.OnLoanUntil < date;
+        }
+
+        public int UserBooksOnLoan(List<Book> books, string userName)
+        {
+            return Books.Where(Book => Book.OnLoanToWhom == userName).ToList().Count;
         }
     }
 }
