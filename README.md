@@ -19,7 +19,7 @@ Solution architecture:
 * LibraryConsoleApp (Console Application)
   * Models
     * Book.cs (Model for Book)
-    * Library.cs (Model of library and functions for interaction)
+    * Library.cs (Model for Library and functions for interaction with Library (Book objects))
   * CLI.cs (Command Line Interface)
   * Program.cs 
 * LibraryUnitTests (xUnit Test Project)
